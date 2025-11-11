@@ -1,0 +1,152 @@
+# Hardcore AI Landing Page
+
+## Descripción
+
+Landing page estática para el programa **Hardcore AI** - De Desarrollador a Orquestador de IA. Una página de conversión diseñada para atraer desarrolladores y convertirlos en orquestadores de IA.
+
+## Características
+
+- 🎨 **Diseño Responsivo**: Optimizado para todos los dispositivos
+- ⚡ **Rendimiento Optimizado**: Servido con Express.js y middleware de compresión
+- 🔒 **Seguridad**: Configurado con Helmet.js para headers de seguridad
+- 📧 **CTA Funcional**: Botón de aplicación conectado a email
+- 🚀 **Lista para Railway**: Configuración completa para deployment
+
+## Tecnologías
+
+- Node.js + Express.js
+- Tailwind CSS (CDN)
+- Inter Font (Google Fonts)
+- Placehold.co para imágenes
+
+## Estructura del Proyecto
+
+```
+/
+├── package.json          # Dependencias y scripts
+├── server.js             # Servidor Express
+├── Procfile              # Configuración para Railway
+├── .gitignore           # Archivos a ignorar en Git
+├── .env.example         # Variables de entorno de ejemplo
+├── public/
+│   └── index.html       # Landing page principal
+└── README.md            # Este archivo
+```
+
+## Instalación Local
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone <tu-repositorio>
+   cd hardcore-ai-landing
+   ```
+
+2. **Instalar dependencias:**
+   ```bash
+   npm install
+   ```
+
+3. **Configurar variables de entorno:**
+   ```bash
+   cp .env.example .env
+   # Editar .env con tus valores
+   ```
+
+4. **Ejecutar en desarrollo:**
+   ```bash
+   npm run dev
+   ```
+
+5. **Ejecutar en producción:**
+   ```bash
+   npm start
+   ```
+
+## Deployment en Railway
+
+### Opción 1: Deployment Automático desde GitHub
+
+1. **Crear cuenta en Railway:**
+   - Ve a [railway.app](https://railway.app)
+   - Regístrate con GitHub
+
+2. **Conectar repositorio:**
+   - Crea un nuevo proyecto en Railway
+   - Conecta tu repositorio de GitHub
+   - Railway detectará automáticamente el proyecto Node.js
+
+3. **Configurar variables de entorno:**
+   En Railway, añade estas variables:
+   ```
+   NODE_ENV=production
+   APP_URL=https://tu-app.up.railway.app
+   CONTACT_EMAIL=contacto@hardcoreai.com
+   ```
+
+4. **Deployment:**
+   - Railway automáticamente hará build y deploy
+   - La URL se proporcionará al finalizar
+
+### Opción 2: Deployment con Railway CLI
+
+1. **Instalar Railway CLI:**
+   ```bash
+   npm install -g @railway/cli
+   ```
+
+2. **Login y inicializar:**
+   ```bash
+   railway login
+   railway init
+   ```
+
+3. **Deploy:**
+   ```bash
+   railway up
+   ```
+
+## Variables de Entorno
+
+| Variable | Descripción | Ejemplo |
+|----------|-------------|---------|
+| `NODE_ENV` | Ambiente de ejecución | `production` |
+| `PORT` | Puerto del servidor | `3000` |
+| `APP_URL` | URL de la aplicación | `https://hardcore-ai-landing.up.railway.app` |
+| `CONTACT_EMAIL` | Email de contacto | `contacto@hardcoreai.com` |
+
+## Scripts Disponibles
+
+- `npm start` - Ejecutar en producción
+- `npm run dev` - Ejecutar en desarrollo con nodemon
+- `npm test` - Ejecutar tests (no configurado)
+
+## Próximos Pasos
+
+1. **Conectar CTA a formulario real:**
+   - Integrar con servicio de email (SendGrid, Mailgun)
+   - O conectar con CRM (HubSpot, Salesforce)
+
+2. **Añadir analytics:**
+   - Google Analytics
+   - Facebook Pixel
+   - Hotjar para heatmaps
+
+3. **Optimizar SEO:**
+   - Configurar sitemap.xml
+   - Añadir robots.txt
+   - Meta tags dinámicos
+
+4. **A/B Testing:**
+   - Testear diferentes CTAs
+   - Variaciones de headlines
+   - Formularios alternativos
+
+## Soporte
+
+Para soporte técnico o consultas sobre el deployment:
+- Email: contacto@hardcoreai.com
+- Documentación Railway: [docs.railway.app](https://docs.railway.app)
+
+## Licencia
+
+MIT License - Ver archivo LICENSE para detalles.
