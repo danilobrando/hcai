@@ -487,6 +487,10 @@
             display: none;
         }
 
+        .faq-answer.is-visible {
+            display: block;
+        }
+
         footer {
             border-top: 1px solid var(--border);
             padding: 3rem 0;
@@ -542,15 +546,15 @@
                 <div class="urgency-pill">🔥 Cupos extremadamente limitados</div>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <h3>24h</h3>
-                        <p>En vivo intensivas</p>
+                        <h3>12 sesiones</h3>
+                        <p>En vivo</p>
                     </div>
                     <div class="stat-card">
                         <h3>E2E</h3>
                         <p>Proyecto completo</p>
                     </div>
                     <div class="stat-card">
-                        <h3>$1K</h3>
+                        <h3>$1K USD</h3>
                         <p>Inversión total</p>
                     </div>
                 </div>
@@ -896,7 +900,7 @@
                 <div class="pricing-box">
                     <div class="section-label">Inversión en tu Futuro</div>
                     <h2 class="section-title">Transformación Completa</h2>
-                    <div class="price">$1,000</div>
+                    <div class="price">$1.000 USD</div>
                     <p style="color: var(--muted-foreground);">Un programa completo de transformación end-to-end.</p>
                     <div class="pricing-features">
                         <div class="feature-item"><div class="checkmark">✓</div><span>12 sesiones en vivo (24 horas) + Bonus con expertos</span></div>
@@ -966,7 +970,6 @@
                 <p class="section-subtitle">Únete a desarrolladores de élite que están redefiniendo lo que significa crear software en la era de la IA.</p>
                 <div class="hero-actions" style="justify-content: center;">
                     <a href="#pricing" class="btn btn-accent">Reserva tu Cupo →</a>
-                    <a href="mailto:contacto@hardcoreai.com?subject=Consulta%20Hardcore%20AI" class="btn btn-ghost">Más Información</a>
                 </div>
                 <div class="stats-grid" style="border: none; padding: 2rem 0 0;">
                     <div class="stat-card">
@@ -992,26 +995,47 @@
     </footer>
 
     <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (event) => {
-                const target = document.querySelector(anchor.getAttribute('href'));
-                if (target) {
+        const initSmoothScroll = () => {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (event) => {
+                    const href = anchor.getAttribute('href');
+                    if (!href || href === '#') {
+                        return;
+                    }
+                    const target = document.querySelector(href);
+                    if (!target) {
+                        return;
+                    }
                     event.preventDefault();
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                });
             });
-        });
+        };
 
-        document.querySelectorAll('.faq-item').forEach(item => {
-            const answer = item.querySelector('.faq-answer');
-            const icon = item.querySelector('.faq-question span');
-            answer.style.display = 'none';
-            item.addEventListener('click', () => {
-                const isOpen = answer.style.display === 'block';
-                answer.style.display = isOpen ? 'none' : 'block';
-                icon.textContent = isOpen ? '+' : '−';
+        const initFaqAccordion = () => {
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const answer = item.querySelector('.faq-answer');
+                const icon = item.querySelector('.faq-question span');
+                if (!answer || !icon) {
+                    return;
+                }
+                item.addEventListener('click', () => {
+                    const isOpen = answer.classList.toggle('is-visible');
+                    icon.textContent = isOpen ? '−' : '+';
+                });
             });
-        });
+        };
+
+        const bootstrapInteractions = () => {
+            initSmoothScroll();
+            initFaqAccordion();
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', bootstrapInteractions);
+        } else {
+            bootstrapInteractions();
+        }
     </script>
 </body>
 </html>
