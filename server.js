@@ -15,7 +15,7 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.tailwindcss.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https://placehold.co"],
-      scriptSrc: ["'self'", "https://cdn.tailwindcss.com"]
+      scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com"]
     }
   }
 }));
