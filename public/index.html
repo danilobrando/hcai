@@ -4,16 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardcore AI | De Operador a Orquestador de IA</title>
-    
+
     <!-- Meta tags para SEO -->
     <meta name="description" content="Programa de élite: 12 sesiones intensivas para transformarte de operador reemplazable a orquestador indispensable. Domina el Stack Humano y orquesta IA con disciplina de Vibe Engineering.">
     <meta name="keywords" content="IA, inteligencia artificial, desarrollador, orquestador, Hardcore AI, programación, FDE, Vibe Engineering">
     <meta name="author" content="Hardcore AI Team">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/webp" href="30xlogo.webp">
-    <link rel="shortcut icon" href="30xlogo.webp">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="">
@@ -27,746 +23,642 @@
     <meta property="twitter:title" content="Hardcore AI | De Operador a Orquestador de IA">
     <meta property="twitter:description" content="De operador reemplazable a orquestador indispensable. 12 sesiones intensivas + Bonus con expertos.">
     <meta property="twitter:image" content="30xlogo.webp">
-    
+
+    <link rel="icon" type="image/webp" href="30xlogo.webp">
+
     <!-- Fuente Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        :root {
+            --background: #ffffff;
+            --foreground: #0a0a0a;
+            --card: #ffffff;
+            --card-foreground: #0a0a0a;
+            --muted: #f5f5f5;
+            --muted-foreground: #6b6b6b;
+            --secondary: #a3a3a3;
+            --border: #e6e6e6;
+            --accent: #edfa89;
+            --accent-foreground: #0a0a0a;
+            --destructive: #ef4343;
+            --radius: 0.75rem;
+            --shadow-soft: 0 24px 60px rgba(15, 15, 15, 0.08);
+            color-scheme: light;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --background: #050505;
+                --foreground: #f5f5f5;
+                --card: #0d0d0d;
+                --card-foreground: #f5f5f5;
+                --muted: #111111;
+                --muted-foreground: #c7c7c7;
+                --border: #1f1f1f;
+                color-scheme: dark;
+            }
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
         body {
+            margin: 0;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #000;
-            color: #fff;
-            overflow-x: hidden;
+            background: var(--background);
+            color: var(--foreground);
+            line-height: 1.6;
+            min-height: 100vh;
         }
 
-        /* Gradiente animado de fondo */
-        .gradient-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(255, 75, 145, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 90%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
-            z-index: -1;
-            animation: pulse 8s ease-in-out infinite;
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
+        a {
+            color: inherit;
+            text-decoration: none;
         }
 
-        /* Variables de color */
-        :root {
-            --primary-gradient: linear-gradient(135deg, #7877C6 0%, #FF4B91 100%);
-            --accent-cyan: #00FFFF;
-            --dark-bg: #000000;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border: rgba(255, 255, 255, 0.1);
+        ::selection {
+            background: var(--accent);
+            color: var(--accent-foreground);
         }
 
         .container {
-            max-width: 1200px;
+            width: min(90vw, 1400px);
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1rem;
         }
 
-        /* Header */
         header {
-            padding: 20px 0;
-            position: relative;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.7);
+            border-bottom: 1px solid var(--border);
+            z-index: 10;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            header {
+                background: rgba(5, 5, 5, 0.7);
+            }
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
         }
 
         .logo-img {
-            height: 32px;
-            opacity: 0.9;
+            height: 40px;
         }
 
-        /* Hero Section */
-        .hero {
-            padding: 100px 0 80px;
-            text-align: center;
-            position: relative;
+        nav {
+            display: flex;
+            gap: 1.5rem;
+            font-weight: 500;
         }
 
-        .badge {
-            display: inline-block;
-            padding: 8px 20px;
-            background: rgba(120, 119, 198, 0.2);
-            border: 1px solid rgba(120, 119, 198, 0.4);
-            border-radius: 50px;
-            font-size: 14px;
+        nav a {
+            color: var(--foreground);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        nav a:hover {
+            opacity: 1;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 1.8rem;
+            border-radius: var(--radius);
             font-weight: 600;
-            margin-bottom: 30px;
-            animation: fadeInDown 0.8s ease;
+            font-size: 1rem;
+            transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+            text-align: center;
+            border: 1px solid transparent;
         }
 
-        h1 {
-            font-size: clamp(40px, 7vw, 80px);
-            font-weight: 900;
-            line-height: 1.1;
-            margin-bottom: 30px;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: fadeInUp 0.8s ease 0.2s backwards;
+        .btn-accent {
+            background: var(--accent);
+            color: var(--accent-foreground);
+            box-shadow: 0 20px 40px rgba(237, 250, 137, 0.35);
         }
 
-        .subtitle {
-            font-size: clamp(18px, 2.5vw, 24px);
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin: 0 auto 40px;
-            animation: fadeInUp 0.8s ease 0.4s backwards;
-        }
-
-        .cta-primary {
-            display: inline-block;
-            padding: 20px 50px;
-            background: var(--primary-gradient);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 10px 40px rgba(120, 119, 198, 0.4);
-            animation: fadeInUp 0.8s ease 0.6s backwards;
-        }
-
-        .cta-primary:hover {
+        .btn-accent:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 50px rgba(120, 119, 198, 0.6);
+            box-shadow: 0 30px 50px rgba(237, 250, 137, 0.45);
         }
 
-        .cta-secondary {
-            display: inline-block;
-            padding: 20px 50px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: #fff;
-            text-decoration: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 700;
-            transition: all 0.3s ease;
+        .btn-ghost {
+            border-color: var(--border);
+            color: var(--foreground);
+            background: transparent;
         }
 
-        .cta-secondary:hover {
-            border-color: var(--accent-cyan);
-            background: rgba(0, 255, 255, 0.1);
+        .btn-ghost:hover {
+            background: var(--muted);
         }
 
-        .urgency {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: rgba(255, 75, 145, 0.2);
-            border: 1px solid rgba(255, 75, 145, 0.4);
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            color: #FF4B91;
+        main {
+            padding-bottom: 5rem;
         }
 
-        /* Stats Section */
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin: 80px 0;
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .stat {
-            text-align: center;
-            animation: fadeIn 1s ease backwards;
-        }
-
-        .stat:nth-child(1) { animation-delay: 0.2s; }
-        .stat:nth-child(2) { animation-delay: 0.4s; }
-        .stat:nth-child(3) { animation-delay: 0.6s; }
-        .stat:nth-child(4) { animation-delay: 0.8s; }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: 900;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 16px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Sections */
         .section {
-            padding: 80px 0;
-        }
-
-        h2 {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 18px;
-            color: rgba(255, 255, 255, 0.7);
-            max-width: 700px;
-            margin: 0 auto 60px;
+            padding: 5rem 0;
         }
 
         .section-label {
-            display: block;
-            text-align: center;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--accent-cyan);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+            letter-spacing: 0.15em;
+            color: var(--secondary);
+            margin-bottom: 1rem;
         }
 
-        /* Cards */
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
         }
 
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 40px;
-            transition: all 0.3s ease;
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--muted-foreground);
+            max-width: 720px;
+            margin-bottom: 3rem;
+        }
+
+        .hero {
+            padding: 6rem 0 4rem;
             position: relative;
             overflow: hidden;
         }
 
-        .card::before {
+        .hero::after {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            inset: 0;
+            background: radial-gradient(circle at 20% 20%, rgba(237, 250, 137, 0.4), transparent 50%),
+                        radial-gradient(circle at 80% 30%, rgba(15, 15, 15, 0.12), transparent 50%);
+            opacity: 0.4;
+            pointer-events: none;
         }
 
-        .card:hover::before {
-            transform: scaleX(1);
+        .hero > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: var(--muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title {
+            font-size: clamp(2.8rem, 7vw, 4.5rem);
+            font-weight: 800;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.04em;
+        }
+
+        .hero-title span {
+            background: linear-gradient(120deg, #0a0a0a, #6b6b6b);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .hero-title span {
+                background: linear-gradient(120deg, #f5f5f5, #a1a1a1);
+            }
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            color: var(--muted-foreground);
+            max-width: 720px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .urgency-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            background: rgba(239, 67, 67, 0.1);
+            color: var(--destructive);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 2rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stat-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            color: var(--muted-foreground);
+        }
+
+        .split-grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .split-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        .card {
+            background: var(--card);
+            color: var(--card-foreground);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            box-shadow: none;
+            transition: transform 200ms ease, box-shadow 200ms ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(120, 119, 198, 0.3);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .card-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid.two {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .card-grid.three {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .card-grid.four {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
         }
 
         .card-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: #fff;
-        }
-
-        .card p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-        }
-
-        /* Problem/Solution Sections */
-        .problem-section {
-            background: #000;
-            padding: 80px 0;
-        }
-
-        .solution-section {
-            background: rgba(120, 119, 198, 0.05);
-            padding: 80px 0;
-        }
-
-        .two-col-grid {
+            width: 3.5rem;
+            height: 3.5rem;
+            border-radius: 999px;
+            background: var(--muted);
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: center;
+            place-items: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
-        .highlight-box {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 75, 145, 0.4);
-            border-radius: 15px;
-            padding: 30px;
-        }
-
-        .highlight-box.success {
-            border-color: rgba(0, 255, 255, 0.4);
-        }
-
-        .highlight-box h3 {
-            font-size: 20px;
-            margin-bottom: 15px;
-        }
-
-        .highlight-box ul {
+        .highlight-list {
             list-style: none;
             padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        .highlight-box li {
+        .highlight-list li {
             display: flex;
+            gap: 0.75rem;
             align-items: flex-start;
-            gap: 10px;
-            margin: 15px 0;
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--muted-foreground);
         }
 
-        .highlight-box li svg {
+        .highlight-list svg {
             flex-shrink: 0;
-            margin-top: 2px;
         }
 
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin: 0 auto 20px;
-        }
-
-        /* Timeline */
         .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 60px auto;
-            padding: 40px 0;
+            margin-top: 3rem;
         }
 
         .timeline-item {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 50px;
-            opacity: 0;
-            animation: slideIn 0.8s ease forwards;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.5rem;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid var(--border);
         }
-
-        .timeline-item:nth-child(1) { animation-delay: 0.1s; }
-        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
-        .timeline-item:nth-child(3) { animation-delay: 0.3s; }
-        .timeline-item:nth-child(4) { animation-delay: 0.4s; }
-        .timeline-item:nth-child(5) { animation-delay: 0.5s; }
-        .timeline-item:nth-child(6) { animation-delay: 0.6s; }
-        .timeline-item:nth-child(7) { animation-delay: 0.7s; }
-        .timeline-item:nth-child(8) { animation-delay: 0.8s; }
-        .timeline-item:nth-child(9) { animation-delay: 0.9s; }
-        .timeline-item:nth-child(10) { animation-delay: 1.0s; }
-        .timeline-item:nth-child(11) { animation-delay: 1.1s; }
-        .timeline-item:nth-child(12) { animation-delay: 1.2s; }
 
         .timeline-marker {
-            flex-shrink: 0;
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 800;
-            font-size: 20px;
+            width: 3.75rem;
+            height: 3.75rem;
+            border-radius: 999px;
+            background: var(--muted);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
         }
 
-        .timeline-content {
-            flex: 1;
-            padding: 15px 0;
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--accent-foreground);
+            margin: 0 auto 1rem;
+            display: grid;
+            place-items: center;
+            font-weight: 700;
+            font-size: 1.25rem;
         }
 
-        .timeline-content h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        .timeline-content p {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
-            text-align: left;
-        }
-
-        /* Pricing */
         .pricing-box {
-            background: linear-gradient(135deg, rgba(120, 119, 198, 0.1) 0%, rgba(255, 75, 145, 0.1) 100%);
-            border-radius: 30px;
-            padding: 80px 60px;
-            text-align: center;
-            margin: 60px 0;
+            background: linear-gradient(135deg, rgba(237, 250, 137, 0.2), rgba(15, 15, 15, 0.05));
+            border-radius: 1.5rem;
+            padding: clamp(2rem, 5vw, 4rem);
             border: 1px solid var(--border);
+            text-align: center;
         }
 
         .price {
-            font-size: 72px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #fff 0%, #7877C6 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 30px 0;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            margin: 1.5rem 0;
         }
 
         .pricing-features {
-            max-width: 600px;
-            margin: 40px auto;
             text-align: left;
+            margin: 2rem auto;
+            max-width: 640px;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin: 20px 0;
-            font-size: 18px;
+            gap: 0.75rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .checkmark {
-            width: 30px;
-            height: 30px;
-            background: var(--primary-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: var(--accent-foreground);
+            display: grid;
+            place-items: center;
+            font-weight: 700;
         }
 
-        /* FAQ */
+        .guarantee-box {
+            border-radius: 1.25rem;
+            border: 1px solid var(--border);
+            padding: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            background: var(--muted);
+        }
+
         .faq-container {
-            max-width: 800px;
-            margin: 60px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
         .faq-item {
-            background: var(--card-bg);
             border: 1px solid var(--border);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 20px;
+            border-radius: var(--radius);
+            padding: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .faq-item:hover {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(120, 119, 198, 0.3);
+            background: var(--card);
         }
 
         .faq-question {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            font-weight: 600;
         }
 
         .faq-answer {
-            color: rgba(255, 255, 255, 0.7);
-            line-height: 1.6;
+            margin-top: 0.75rem;
+            color: var(--muted-foreground);
+            display: none;
         }
 
-        /* Guarantee */
-        .guarantee-box {
-            background: rgba(0, 255, 255, 0.05);
-            border: 2px solid var(--accent-cyan);
-            border-radius: 20px;
-            padding: 40px;
-            text-align: center;
-            margin: 60px 0;
-        }
-
-        .guarantee-icon {
-            font-size: 64px;
-            margin-bottom: 20px;
-        }
-
-        /* Footer */
         footer {
-            padding: 60px 0 40px;
-            text-align: center;
             border-top: 1px solid var(--border);
-            margin-top: 100px;
+            padding: 3rem 0;
+            text-align: center;
+            color: var(--muted-foreground);
         }
 
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .final-cta {
+            background: var(--card);
+            border-radius: 1.5rem;
+            border: 1px solid var(--border);
+            padding: clamp(2rem, 5vw, 4rem);
+            text-align: center;
         }
 
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0 40px;
-            }
-
-            .stats {
-                gap: 30px;
-                margin: 40px 0;
-            }
-
-            .card-grid {
-                grid-template-columns: 1fr;
-            }
-
+        @media (max-width: 640px) {
+            nav { display: none; }
             .timeline-item {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .pricing-box {
-                padding: 60px 30px;
-            }
-
-            .price {
-                font-size: 56px;
-            }
-
-            .two-col-grid {
                 grid-template-columns: 1fr;
+            }
+            .timeline-marker {
+                width: 3rem;
+                height: 3rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="gradient-bg"></div>
-    
     <header>
-        <div class="container">
+        <div class="container header-inner">
             <img src="30xlogo.webp" alt="Logo 30X" class="logo-img" onerror="this.style.display='none';">
+            <nav>
+                <a href="#programa">Programa</a>
+                <a href="#experts">Expertos</a>
+                <a href="#pricing">Inversión</a>
+            </nav>
+            <a href="#pricing" class="btn btn-accent" style="font-size: 0.9rem;">Aplicar</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section class="hero">
             <div class="container">
                 <div class="badge">✨ 12 sesiones en vivo + Bonus con expertos</div>
-                <h1>De Operador Reemplazable<br>a Orquestador Indispensable</h1>
-                <p class="subtitle">
+                <h1 class="hero-title">De Operador Reemplazable<br><span>a Orquestador Indispensable</span></h1>
+                <p class="hero-text">
                     Domina el Stack Humano como Forward Deployed Engineer y orquesta agentes de IA con la disciplina del Vibe Engineering.
                 </p>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px;">
-                    <a href="#pricing" class="cta-primary">Inicia tu Transformación →</a>
-                    <a href="#programa" class="cta-secondary">Ver Programa</a>
+                <div class="hero-actions">
+                    <a href="#pricing" class="btn btn-accent">Inicia tu Transformación →</a>
+                    <a href="#programa" class="btn btn-ghost">Ver Programa</a>
                 </div>
-                <div class="urgency">🔥 Cupos extremadamente limitados</div>
-            </div>
-        </section>
-
-        <!-- Stats Section -->
-        <section class="container">
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-number">24h</div>
-                    <div class="stat-label">En vivo intensivas</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">E2E</div>
-                    <div class="stat-label">Proyecto completo</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-number">$1K</div>
-                    <div class="stat-label">Inversión total</div>
+                <div class="urgency-pill">🔥 Cupos extremadamente limitados</div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>24h</h3>
+                        <p>En vivo intensivas</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>E2E</h3>
+                        <p>Proyecto completo</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>$1K</h3>
+                        <p>Inversión total</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Problem Section -->
-        <section class="problem-section">
+        <section class="section">
             <div class="container">
-                <span class="section-label">El Problema</span>
-                <h2>El Espejismo del "Vibe Coding"</h2>
+                <div class="section-label">El Problema</div>
+                <h2 class="section-title">El Espejismo del "Vibe Coding"</h2>
                 <p class="section-subtitle">
-                    Generar código con un prompt es fácil. Mágico, incluso.<br>
-                    Hasta que intentas agregar un feature y todo se rompe.
+                    Generar código con un prompt es fácil. Mágico, incluso. Hasta que intentas agregar un feature y todo se rompe.
                 </p>
-                <div class="two-col-grid">
-                    <div>
-                        <p style="font-size: 18px; color: rgba(255, 255, 255, 0.8); margin-bottom: 30px;">
+                <div class="split-grid">
+                    <div class="card" style="background: var(--muted);">
+                        <p>
                             El "Vibe Coding" es la práctica de generar código sin arquitectura, sin disciplina y sin entendimiento. Es confiar ciegamente en la IA, esperando que la velocidad reemplace a la robustez.
                         </p>
-                        <div class="highlight-box">
-                            <h3 style="color: #FF4B91;">El Costo Real del "Vibe Coding":</h3>
-                            <ul>
-                                <li>
-                                    <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Deuda Técnica Exponencial:</strong> Cada línea que no entiendes es una bomba de tiempo</span>
-                                </li>
-                                <li>
-                                    <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Nula Mantenibilidad:</strong> Si la IA lo creó, solo la IA puede arreglarlo</span>
-                                </li>
-                                <li>
-                                    <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Vulnerabilidades Ocultas:</strong> Código sin contexto de seguridad</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <h3 style="margin-top: 1.5rem;">El Costo Real del "Vibe Coding"</h3>
+                        <ul class="highlight-list">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                                <span><strong>Deuda técnica exponencial:</strong> cada línea que no entiendes es una bomba de tiempo.</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                                <span><strong>Nula mantenibilidad:</strong> si la IA lo creó, solo la IA puede arreglarlo.</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
+                                <span><strong>Vulnerabilidades ocultas:</strong> código sin contexto de seguridad.</span>
+                            </li>
+                        </ul>
                     </div>
-                    <div style="text-align: center; padding: 40px; background: rgba(255, 255, 255, 0.03); border-radius: 20px;">
-                        <div style="font-size: 80px; margin-bottom: 20px;">🤔</div>
-                        <h3 style="font-size: 28px; margin-bottom: 15px;">Te conviertes en un "Operador"</h3>
-                        <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
-                            Un simple ejecutor de prompts. Un commodity.<br>
-                            El boilerplate humano.
-                        </p>
-                        <p style="font-size: 24px; font-weight: 700; color: #FF4B91;">
-                            Y LOS OPERADORES SON REEMPLAZABLES
-                        </p>
+                    <div class="card" style="text-align: center;">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🤔</div>
+                        <h3>Te conviertes en un "Operador"</h3>
+                        <p>Un simple ejecutor de prompts. Un commodity. El boilerplate humano.</p>
+                        <p style="margin-top: 1.5rem; font-weight: 700; color: var(--destructive);">Y LOS OPERADORES SON REEMPLAZABLES</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Solution Section -->
-        <section class="solution-section">
+        <section class="section" style="background: var(--muted);">
             <div class="container">
-                <span class="section-label">La Solución</span>
-                <h2>La Disciplina del "Vibe Engineering"</h2>
+                <div class="section-label">La Solución</div>
+                <h2 class="section-title">La Disciplina del "Vibe Engineering"</h2>
                 <p class="section-subtitle">
-                    Es hora de evolucionar. El rol que la industria necesita no es un autor de código,<br>
-                    es un arquitecto de sistemas.
+                    Es hora de evolucionar. El rol que la industria necesita no es un autor de código, es un arquitecto de sistemas.
                 </p>
-                <div class="two-col-grid">
-                    <div style="text-align: center; padding: 40px; background: rgba(0, 255, 255, 0.05); border-radius: 20px; border: 2px solid rgba(0, 255, 255, 0.3);">
-                        <div style="font-size: 80px; margin-bottom: 20px;">🎯</div>
-                        <h3 style="font-size: 28px; margin-bottom: 15px;">Te conviertes en un "Orquestador"</h3>
-                        <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 20px;">
-                            Un líder técnico que dirige la IA con intención,<br>
-                            planificación y verificación rigurosa.
-                        </p>
-                        <p style="font-size: 24px; font-weight: 700; color: var(--accent-cyan);">
-                            Y LOS ORQUESTADORES SON INDISPENSABLES
-                        </p>
+                <div class="split-grid">
+                    <div class="card" style="text-align: center; background: var(--card);">
+                        <div style="font-size: 3rem; margin-bottom: 1rem;">🎯</div>
+                        <h3>Te conviertes en un "Orquestador"</h3>
+                        <p>Un líder técnico que dirige la IA con intención, planificación y verificación rigurosa.</p>
+                        <p style="margin-top: 1.5rem; font-weight: 700; color: #2f3d00;">Y LOS ORQUESTADORES SON INDISPENSABLES</p>
                     </div>
-                    <div>
-                        <p style="font-size: 18px; color: rgba(255, 255, 255, 0.8); margin-bottom: 30px;">
+                    <div class="card" style="background: var(--card);">
+                        <p>
                             El "Vibe Engineering" es la integración inteligente de la IA en procesos que garantizan calidad, seguridad y mantenibilidad. Es usar la IA como un ejército de agentes que ejecutan TU plan.
                         </p>
-                        <div class="highlight-box success">
-                            <h3 style="color: var(--accent-cyan);">El Stack del Orquestador (FDE):</h3>
-                            <ul>
-                                <li>
-                                    <svg width="20" height="20" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Capacidad Full-Stack Real:</strong> Domina front, back, infra, datos e IA</span>
-                                </li>
-                                <li>
-                                    <svg width="20" height="20" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Agudeza de Negocio:</strong> Traduce problemas vagos en soluciones técnicas</span>
-                                </li>
-                                <li>
-                                    <svg width="20" height="20" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                                    <span><strong>Fluidez con el Cliente:</strong> Obsesionado con el outcome, no el output</span>
-                                </li>
-                            </ul>
-                        </div>
+                        <h3 style="margin-top: 1.5rem; color: #2f3d00;">El Stack del Orquestador (FDE)</h3>
+                        <ul class="highlight-list">
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span><strong>Capacidad full-stack real:</strong> domina front, back, infra, datos e IA.</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span><strong>Agudeza de negocio:</strong> traduce problemas vagos en soluciones técnicas.</span>
+                            </li>
+                            <li>
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
+                                <span><strong>Fluidez con el cliente:</strong> obsesionado con el outcome, no el output.</span>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Transformation Section -->
-        <section class="section container">
-            <span class="section-label">Doble Transformación</span>
-            <h2>Evolucionarás en Dos Frentes Simultáneos</h2>
-            <p class="section-subtitle">
-                Que te convertirán en un desarrollador de élite
-            </p>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">👤</div>
-                    <h3>Stack Humano</h3>
-                    <p>Acércate al cliente y al negocio como un Forward Deployed Engineer. Empoderamiento radical del problema con enfoque en métricas de valor.</p>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>Orquestador Técnico</h3>
-                    <p>Dirige agentes de IA con la disciplina del Vibe Engineering. Mantente orgullosamente responsable de la arquitectura y calidad del software.</p>
+        <section class="section">
+            <div class="container">
+                <div class="section-label">Doble Transformación</div>
+                <h2 class="section-title">Evolucionarás en Dos Frentes Simultáneos</h2>
+                <p class="section-subtitle">Que te convertirán en un desarrollador de élite.</p>
+                <div class="card-grid two">
+                    <div class="card">
+                        <div class="card-icon">👤</div>
+                        <h3>Stack Humano</h3>
+                        <p>Acércate al cliente y al negocio como un Forward Deployed Engineer. Empoderamiento radical del problema con enfoque en métricas de valor.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🤖</div>
+                        <h3>Orquestador Técnico</h3>
+                        <p>Dirige agentes de IA con la disciplina del Vibe Engineering. Mantente orgullosamente responsable de la arquitectura y calidad del software.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- AI-DLC Section -->
-        <section class="section container">
-            <div style="background: rgba(120, 119, 198, 0.05); border-radius: 30px; padding: 60px 40px;">
-                <span class="section-label">Outcomes Específicos</span>
-                <h2>Dominarás el AI-DLC Completo</h2>
-                <p class="section-subtitle">
-                    Un flujo end-to-end aumentado por IA en cada etapa
-                </p>
-                <div class="card-grid">
+        <section class="section" style="background: var(--muted);">
+            <div class="container">
+                <div class="section-label">Outcomes Específicos</div>
+                <h2 class="section-title">Dominarás el AI-DLC Completo</h2>
+                <p class="section-subtitle">Un flujo end-to-end aumentado por IA en cada etapa.</p>
+                <div class="card-grid four">
                     <div class="card">
                         <div class="card-icon">🎯</div>
                         <h3>FDE Mindset</h3>
@@ -791,406 +683,299 @@
             </div>
         </section>
 
-        <!-- Journey Timeline -->
-        <section id="programa" class="section container">
-            <span class="section-label">Tu Journey</span>
-            <h2>12 Días de Transformación Intensiva</h2>
-            <p class="section-subtitle">
-                De descubrimiento a producción, construyendo un proyecto real aumentado por IA
-            </p>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker">01</div>
-                    <div class="timeline-content">
-                        <h3>Introducción y demostración</h3>
-                        <p>Bienvenida, demo de referencia, presentación del proyecto E2E y conformación de equipos.</p>
+        <section id="programa" class="section">
+            <div class="container">
+                <div class="section-label">Tu Journey</div>
+                <h2 class="section-title">12 Días de Transformación Intensiva</h2>
+                <p class="section-subtitle">De descubrimiento a producción, construyendo un proyecto real aumentado por IA.</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker">01</div>
+                        <div>
+                            <h3>Introducción y demostración</h3>
+                            <p>Bienvenida, demo de referencia, presentación del proyecto E2E y conformación de equipos.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">02</div>
-                    <div class="timeline-content">
-                        <h3>Descubrimiento y Definición</h3>
-                        <p>Aplicación inmediata del marco FDE con descubrimiento simulado para definir el problema real.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">02</div>
+                        <div>
+                            <h3>Descubrimiento y Definición</h3>
+                            <p>Aplicación inmediata del marco FDE con descubrimiento simulado para definir el problema real.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">03</div>
-                    <div class="timeline-content">
-                        <h3>Diseñando la solución</h3>
-                        <p>Herramientas AI para generación de UI, journey maps, mockups y prototipo estático funcional.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">03</div>
+                        <div>
+                            <h3>Diseñando la solución</h3>
+                            <p>Herramientas AI para generación de UI, journey maps, mockups y prototipo estático funcional.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">04</div>
-                    <div class="timeline-content">
-                        <h3>Preparando la orquestación</h3>
-                        <p>Configuración de agentes, arquitectura, convenciones, stack y prácticas de desarrollo.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">04</div>
+                        <div>
+                            <h3>Preparando la orquestación</h3>
+                            <p>Configuración de agentes, arquitectura, convenciones, stack y prácticas de desarrollo.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">05</div>
-                    <div class="timeline-content">
-                        <h3>Contexto y conocimiento</h3>
-                        <p>Gestión de conocimiento para aterrizar el dominio y dar contexto preciso a las herramientas IA.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">05</div>
+                        <div>
+                            <h3>Contexto y conocimiento</h3>
+                            <p>Gestión de conocimiento para aterrizar el dominio y dar contexto preciso a las herramientas IA.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">06</div>
-                    <div class="timeline-content">
-                        <h3>Construcción y Validación</h3>
-                        <p>Generación avanzada de código, marcos de agentes, lógica central y pruebas unitarias.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">06</div>
+                        <div>
+                            <h3>Construcción y Validación</h3>
+                            <p>Generación avanzada de código, marcos de agentes, lógica central y pruebas unitarias.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">07</div>
-                    <div class="timeline-content">
-                        <h3>Pruebas Impulsadas por IA</h3>
-                        <p>Generación de pruebas de integración y funcionales para asegurar la calidad del producto.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">07</div>
+                        <div>
+                            <h3>Pruebas Impulsadas por IA</h3>
+                            <p>Generación de pruebas de integración y funcionales para asegurar la calidad del producto.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">08</div>
-                    <div class="timeline-content">
-                        <h3>Pruebas E2E</h3>
-                        <p>Herramientas para testing end-to-end, asegurando el comportamiento deseado para el usuario final.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">08</div>
+                        <div>
+                            <h3>Pruebas E2E</h3>
+                            <p>Herramientas para testing end-to-end, asegurando el comportamiento deseado para el usuario final.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">09</div>
-                    <div class="timeline-content">
-                        <h3>Infraestructura en nube</h3>
-                        <p>Infraestructura como código, simulaciones locales y despliegues reales en producción.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">09</div>
+                        <div>
+                            <h3>Infraestructura en nube</h3>
+                            <p>Infraestructura como código, simulaciones locales y despliegues reales en producción.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">10</div>
-                    <div class="timeline-content">
-                        <h3>Seguridad</h3>
-                        <p>Validación de estándares de seguridad con distintas técnicas y herramientas especializadas.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">10</div>
+                        <div>
+                            <h3>Seguridad</h3>
+                            <p>Validación de estándares de seguridad con distintas técnicas y herramientas especializadas.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">11</div>
-                    <div class="timeline-content">
-                        <h3>Observabilidad 360</h3>
-                        <p>Medición técnica y de negocio. Ciclos de mejora basada en datos reales de operación.</p>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">11</div>
+                        <div>
+                            <h3>Observabilidad 360</h3>
+                            <p>Medición técnica y de negocio. Ciclos de mejora basada en datos reales de operación.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker">12</div>
-                    <div class="timeline-content">
-                        <h3>Demostraciones finales</h3>
-                        <p>Presentación del journey completo: problema, solución con IA y valor de negocio entregado.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3 Pillars Section -->
-        <section class="section container">
-            <span class="section-label">Metodología</span>
-            <h2>Los 3 Pilares de <span style="background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Hardcore AI</span></h2>
-            <p class="section-subtitle">
-                No vienes a escuchar teoría. Vienes a ser retado, a construir y a transformarte.
-            </p>
-            <div class="card-grid">
-                <div class="card">
-                    <div class="card-icon">📋</div>
-                    <h3>Disciplina y Planificación</h3>
-                    <p style="color: rgba(255, 255, 255, 0.5); margin-bottom: 15px; font-size: 14px;">(Anti-Vibe Coding)</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Arquitectura antes de generar</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Protocolos de verificación y PRs</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Gestión de contexto para LLMs</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card" style="border: 2px solid rgba(120, 119, 198, 0.5); transform: scale(1.05);">
-                    <div class="card-icon">👤</div>
-                    <h3>El Stack Humano</h3>
-                    <p style="color: rgba(255, 255, 255, 0.5); margin-bottom: 15px; font-size: 14px;">(Mentalidad FDE)</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Desambiguar problemas de negocio</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Empatía y fluidez con el cliente</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Resiliencia y comunicación efectiva</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <div class="card-icon">🤖</div>
-                    <h3>Orquestación Agéntica</h3>
-                    <p style="color: rgba(255, 255, 255, 0.5); margin-bottom: 15px; font-size: 14px;">(El Nuevo Stack Técnico)</p>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Diseño de agentes de IA</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Fundamentos (front, back, infra, datos)</span>
-                        </li>
-                        <li style="display: flex; align-items: center; gap: 10px; margin: 10px 0;">
-                            <svg width="16" height="16" fill="var(--accent-cyan)" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span>Dominio del ciclo de vida E2E</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experts Section -->
-        <section class="section container">
-            <span class="section-label">Aprende de los Cracks</span>
-            <h2>Sesiones Bonus con Expertos de Élite</h2>
-            <p class="section-subtitle">
-                Líderes que están redefiniendo la industria tech en Latam y el mundo
-            </p>
-            <div class="card-grid">
-                <div class="card" style="text-align: center;">
-                    <div class="feature-icon">AB</div>
-                    <h3>Andrés Bilbao</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Ecosistema 30X</p>
-                    <p>Cofundador de Rappi. Su misión es construir las "fábricas de fundadores" de la próxima generación en Latam.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div class="feature-icon">DB</div>
-                    <h3>Danny Bravo</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Director del Programa</p>
-                    <p>Estratega de IA enfocado en la intersección de la capacidad técnica, la estrategia de negocio y el "stack humano".</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div class="feature-icon">TI</div>
-                    <h3>Tribu iA</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">AI-Builders de Élite</p>
-                    <p>Pioneros del "Vibe Engineering" en Latam. El equipo de élite que vive en la frontera de la implementación de IA.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div class="feature-icon">FV</div>
-                    <h3>Felipe Villamarín</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Co-founder Rappi</p>
-                    <p>Construyó uno de los unicornios más disruptivos de Latam desde cero.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div class="feature-icon">FM</div>
-                    <h3>Francisco Martínez</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Tech Manager Disney</p>
-                    <p>Liderando tecnología de ecommerce a escala global en Disney.</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div class="feature-icon">JA</div>
-                    <h3>Jefferson Arcos</h3>
-                    <p style="color: var(--accent-cyan); font-weight: 600; margin-bottom: 10px;">Tech Founder & Head of AI</p>
-                    <p>Head of AI en la startup de más rápido crecimiento en US 2021.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Filter Section -->
-        <section class="section container">
-            <span class="section-label" style="color: #FF4B91;">Filtro de Élite</span>
-            <h2><span style="color: #FF4B91;">Esto No Es Para Todos</span></h2>
-            <p class="section-subtitle">
-                Somos brutalmente selectivos. Este no es un curso, es una transformación.<br>
-                Buscamos el 1%, no al 99%.
-            </p>
-            <div class="two-col-grid">
-                <div class="card">
-                    <h3 style="color: #4ADE80; margin-bottom: 20px;">✓ Esto es para ti si...</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#4ADE80" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span><strong>Ya sabes programar.</strong> Eres un desarrollador o ingeniero con experiencia.</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#4ADE80" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span><strong>Te niegas a ser irrelevante.</strong> Ves el cambio y quieres liderarlo, no sufrirlo.</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#4ADE80" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span><strong>Estás obsesionado con el valor</strong>, no solo con el código.</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#4ADE80" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg>
-                            <span><strong>Buscas feedback duro</strong> y estás dispuesto a romper tus viejos hábitos.</span>
-                        </li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h3 style="color: #FF4B91; margin-bottom: 20px;">✗ Esto NO es para ti si...</h3>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                            <span>Buscas un atajo fácil o una fórmula mágica.</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                            <span>Crees que "Ingeniería de Prompts" es el futuro de la ingeniería.</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                            <span>No quieres "ensuciarte las manos" con el negocio o el cliente.</span>
-                        </li>
-                        <li style="display: flex; align-items: flex-start; gap: 10px; margin: 15px 0;">
-                            <svg width="20" height="20" fill="#FF4B91" viewBox="0 0 20 20" style="flex-shrink: 0; margin-top: 2px;"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg>
-                            <span>No estás dispuesto a ser exigido al máximo.</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Pricing Section -->
-        <section id="pricing" class="container">
-            <div class="pricing-box">
-                <span class="section-label">Inversión en tu Futuro</span>
-                <h2>Transformación Completa</h2>
-                <div class="price">$1,000</div>
-                <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 40px; font-size: 18px;">
-                    Un programa completo de transformación end-to-end
-                </p>
-                <div class="pricing-features">
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <span>12 sesiones en vivo (24 horas) + Bonus con expertos</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <span>Proyecto E2E completo con feedback personalizado</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <span>Acceso a Tribu iA y clases de Vibe Engineering</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <span>Foro exclusivo con sesiones mensuales post-programa</span>
-                    </div>
-                    <div class="feature-item">
-                        <div class="checkmark">✓</div>
-                        <span>Comunidad de desarrolladores de élite de Latam</span>
-                    </div>
-                </div>
-                <a href="mailto:contacto@hardcoreai.com?subject=Aplicación%20Hardcore%20AI&body=Hola,%20quiero%20aplicar%20al%20programa%20Hardcore%20AI." class="cta-primary" style="margin-top: 40px;">Reserva tu Cupo Ahora →</a>
-                <p style="color: rgba(255, 255, 255, 0.5); margin-top: 20px; font-size: 14px;">
-                    💳 Pago en 3 cuotas disponible
-                </p>
-            </div>
-        </section>
-
-        <!-- Guarantee Section -->
-        <section class="container">
-            <div class="guarantee-box">
-                <div class="guarantee-icon">🛡️</div>
-                <h2 style="margin-bottom: 20px;">Garantía de Transformación</h2>
-                <p style="font-size: 18px; color: rgba(255, 255, 255, 0.8); max-width: 600px; margin: 0 auto;">
-                    Si después de las primeras 3 sesiones no ves un cambio tangible en tu forma de trabajar con IA y abordar problemas técnicos, te devolvemos el <strong>100% de tu inversión</strong>. Sin preguntas.
-                </p>
-                <p style="margin-top: 20px; color: rgba(255, 255, 255, 0.6);">
-                    Estamos tan seguros de la transformación que ofrecemos esta garantía sin riesgo.
-                </p>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="section container">
-            <span class="section-label">Preguntas Frecuentes</span>
-            <h2>¿Tienes Dudas?</h2>
-            <p class="section-subtitle">
-                Respuestas a las preguntas más comunes sobre el programa
-            </p>
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Necesito experiencia previa con IA?
-                        <span style="color: var(--accent-cyan);">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        No necesitas ser experto en IA, pero SÍ debes ser un desarrollador con experiencia. El programa asume que dominas programación y conceptos de ingeniería de software. Te enseñaremos a orquestar IA, no a programar desde cero.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Qué pasa si me pierdo una sesión en vivo?
-                        <span style="color: var(--accent-cyan);">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Todas las sesiones quedan grabadas y disponibles para ti. Sin embargo, la magia está en participar en vivo: feedback en tiempo real, networking con otros desarrolladores de élite y la posibilidad de hacer preguntas directas a los expertos.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Hay certificación al finalizar?
-                        <span style="color: var(--accent-cyan);">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Sí, recibes un certificado de completación del programa Hardcore AI. Pero más importante que el certificado es el proyecto E2E que construyes, tu portfolio mejorado y la red de contactos de élite que formas parte.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Cuál es el nivel técnico requerido?
-                        <span style="color: var(--accent-cyan);">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Debes ser desarrollador con al menos 2-3 años de experiencia. Conocimientos de Git, APIs, bases de datos y al menos un lenguaje de programación moderno. Si has construido aplicaciones en producción, estás listo.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Cuánto tiempo debo dedicar por semana?
-                        <span style="color: var(--accent-cyan);">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Las 12 sesiones en vivo son de 2 horas cada una. Además, deberás dedicar entre 5-10 horas semanales para trabajar en tu proyecto E2E. Es un programa intensivo que requiere compromiso real.
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        ¿Puedo pagar en cuotas?
-                        <span style="color: var(--accent-cyan);">+</span>
-                    </div>
-                    <div class="faq-answer">
-                        Sí, ofrecemos la opción de pagar en 3 cuotas iguales: una en noviembre, otra en diciembre y otra en enero. Esto te permite distribuir la inversión mientras comienzas tu transformación. Contacta con nosotros para coordinar el plan de pagos.
+                    <div class="timeline-item">
+                        <div class="timeline-marker">12</div>
+                        <div>
+                            <h3>Demostraciones finales</h3>
+                            <p>Presentación del journey completo: problema, solución con IA y valor de negocio entregado.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Final CTA -->
-        <section class="section container">
-            <div style="background: rgba(255, 255, 255, 0.03); border-radius: 20px; padding: 80px 40px; text-align: center; border: 1px solid var(--border);">
-                <h2 style="margin-bottom: 20px; font-size: clamp(36px, 6vw, 56px);">¿Listo para la Transformación?</h2>
-                <p style="color: rgba(255, 255, 255, 0.7); max-width: 600px; margin: 0 auto 40px; font-size: 20px;">
-                    Únete a desarrolladores de élite que están redefiniendo lo que significa crear software en la era de la IA.
-                </p>
-                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
-                    <a href="#pricing" class="cta-primary">Reserva tu Cupo →</a>
-                    <a href="mailto:contacto@hardcoreai.com?subject=Consulta%20Hardcore%20AI" class="cta-secondary">Más Información</a>
-                </div>
-                <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--border);">
-                    <div>
-                        <div style="font-size: 32px; font-weight: 900; color: var(--accent-cyan);">24h</div>
-                        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.6);">Contenido en vivo</div>
+        <section class="section">
+            <div class="container">
+                <div class="section-label">Metodología</div>
+                <h2 class="section-title">Los 3 Pilares de Hardcore AI</h2>
+                <p class="section-subtitle">No vienes a escuchar teoría. Vienes a ser retado, a construir y a transformarte.</p>
+                <div class="card-grid three">
+                    <div class="card">
+                        <div class="card-icon">📋</div>
+                        <h3>Disciplina y Planificación</h3>
+                        <p style="color: var(--muted-foreground);">(Anti-Vibe Coding)</p>
+                        <ul class="highlight-list">
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Arquitectura antes de generar</span></li>
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Protocolos de verificación y PRs</span></li>
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Gestión de contexto para LLMs</span></li>
+                        </ul>
                     </div>
-                    <div>
-                        <div style="font-size: 32px; font-weight: 900; color: var(--accent-cyan);">100%</div>
-                        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.6);">Garantía</div>
+                    <div class="card" style="border: 2px solid var(--accent);">
+                        <div class="card-icon">👤</div>
+                        <h3>El Stack Humano</h3>
+                        <p style="color: var(--muted-foreground);">(Mentalidad FDE)</p>
+                        <ul class="highlight-list">
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Desambiguar problemas de negocio</span></li>
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Empatía y fluidez con el cliente</span></li>
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Resiliencia y comunicación efectiva</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🤖</div>
+                        <h3>Orquestación Agéntica</h3>
+                        <p style="color: var(--muted-foreground);">(El nuevo stack técnico)</p>
+                        <ul class="highlight-list">
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Diseño de agentes de IA</span></li>
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Fundamentos (front, back, infra, datos)</span></li>
+                            <li><svg width="16" height="16" viewBox="0 0 20 20" fill="#6b7a00"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span>Dominio del ciclo de vida E2E</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experts" class="section" style="background: var(--muted);">
+            <div class="container">
+                <div class="section-label">Aprende de los Cracks</div>
+                <h2 class="section-title">Sesiones Bonus con Expertos de Élite</h2>
+                <p class="section-subtitle">Líderes que están redefiniendo la industria tech en Latam y el mundo.</p>
+                <div class="card-grid three">
+                    <div class="card" style="text-align: center;">
+                        <div class="feature-icon">AB</div>
+                        <h3>Andrés Bilbao</h3>
+                        <p style="color: var(--muted-foreground); font-weight: 600;">Ecosistema 30X</p>
+                        <p>Cofundador de Rappi. Su misión es construir las "fábricas de fundadores" de la próxima generación en Latam.</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="feature-icon">DB</div>
+                        <h3>Danny Bravo</h3>
+                        <p style="color: var(--muted-foreground); font-weight: 600;">Director del Programa</p>
+                        <p>Estratega de IA enfocado en la intersección de la capacidad técnica, la estrategia de negocio y el "stack humano".</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="feature-icon">TI</div>
+                        <h3>Tribu iA</h3>
+                        <p style="color: var(--muted-foreground); font-weight: 600;">AI-Builders de Élite</p>
+                        <p>Pioneros del "Vibe Engineering" en Latam. El equipo de élite que vive en la frontera de la implementación de IA.</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="feature-icon">FV</div>
+                        <h3>Felipe Villamarín</h3>
+                        <p style="color: var(--muted-foreground); font-weight: 600;">Co-founder Rappi</p>
+                        <p>Construyó uno de los unicornios más disruptivos de Latam desde cero.</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="feature-icon">FM</div>
+                        <h3>Francisco Martínez</h3>
+                        <p style="color: var(--muted-foreground); font-weight: 600;">Tech Manager Disney</p>
+                        <p>Liderando tecnología de ecommerce a escala global en Disney.</p>
+                    </div>
+                    <div class="card" style="text-align: center;">
+                        <div class="feature-icon">JA</div>
+                        <h3>Jefferson Arcos</h3>
+                        <p style="color: var(--muted-foreground); font-weight: 600;">Tech Founder & Head of AI</p>
+                        <p>Head of AI en la startup de más rápido crecimiento en US 2021.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label" style="color: var(--destructive);">Filtro de Élite</div>
+                <h2 class="section-title" style="color: var(--destructive);">Esto No Es Para Todos</h2>
+                <p class="section-subtitle">Somos brutalmente selectivos. Este no es un curso, es una transformación. Buscamos el 1%, no al 99%.</p>
+                <div class="card-grid two">
+                    <div class="card">
+                        <h3 style="color: #2f7a2f;">✓ Esto es para ti si...</h3>
+                        <ul class="highlight-list">
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="#2f7a2f"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Ya sabes programar.</strong> Eres un desarrollador o ingeniero con experiencia.</span></li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="#2f7a2f"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Te niegas a ser irrelevante.</strong> Ves el cambio y quieres liderarlo, no sufrirlo.</span></li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="#2f7a2f"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Estás obsesionado con el valor</strong>, no solo con el código.</span></li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="#2f7a2f"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg><span><strong>Buscas feedback duro</strong> y estás dispuesto a romper tus viejos hábitos.</span></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: var(--destructive);">✗ Esto NO es para ti si...</h3>
+                        <ul class="highlight-list">
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg><span>Buscas un atajo fácil o una fórmula mágica.</span></li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg><span>Crees que "Ingeniería de Prompts" es el futuro de la ingeniería.</span></li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg><span>No quieres "ensuciarte las manos" con el negocio o el cliente.</span></li>
+                            <li><svg width="20" height="20" viewBox="0 0 20 20" fill="var(--destructive)"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/></svg><span>No estás dispuesto a ser exigido al máximo.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="section">
+            <div class="container">
+                <div class="pricing-box">
+                    <div class="section-label">Inversión en tu Futuro</div>
+                    <h2 class="section-title">Transformación Completa</h2>
+                    <div class="price">$1,000</div>
+                    <p style="color: var(--muted-foreground);">Un programa completo de transformación end-to-end.</p>
+                    <div class="pricing-features">
+                        <div class="feature-item"><div class="checkmark">✓</div><span>12 sesiones en vivo (24 horas) + Bonus con expertos</span></div>
+                        <div class="feature-item"><div class="checkmark">✓</div><span>Proyecto E2E completo con feedback personalizado</span></div>
+                        <div class="feature-item"><div class="checkmark">✓</div><span>Acceso a Tribu iA y clases de Vibe Engineering</span></div>
+                        <div class="feature-item"><div class="checkmark">✓</div><span>Foro exclusivo con sesiones mensuales post-programa</span></div>
+                        <div class="feature-item"><div class="checkmark">✓</div><span>Comunidad de desarrolladores de élite de Latam</span></div>
+                    </div>
+                    <a href="https://form.typeform.com/to/UNtlSSot?utm_campaign=Landing#ref_id=1" class="btn btn-accent" style="margin-top: 1.5rem;">Reserva tu Cupo Ahora →</a>
+                    <p style="color: var(--muted-foreground); margin-top: 1rem;">💳 Pago en 3 cuotas disponible</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="guarantee-box">
+                    <div style="font-size: 3rem; margin-bottom: 1rem;">🛡️</div>
+                    <h2 class="section-title" style="font-size: 2.5rem;">Garantía de Transformación</h2>
+                    <p>
+                        Si después de las primeras 3 sesiones no ves un cambio tangible en tu forma de trabajar con IA y abordar problemas técnicos, te devolvemos el <strong>100% de tu inversión</strong>. Sin preguntas.
+                    </p>
+                    <p style="margin-top: 1rem; color: var(--muted-foreground);">
+                        Estamos tan seguros de la transformación que ofrecemos esta garantía sin riesgo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="section-label">Preguntas Frecuentes</div>
+                <h2 class="section-title">¿Tienes Dudas?</h2>
+                <p class="section-subtitle">Respuestas a las preguntas más comunes sobre el programa.</p>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">¿Necesito experiencia previa con IA?<span>+</span></div>
+                        <div class="faq-answer">No necesitas ser experto en IA, pero SÍ debes ser un desarrollador con experiencia. El programa asume que dominas programación y conceptos de ingeniería de software. Te enseñaremos a orquestar IA, no a programar desde cero.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Qué pasa si me pierdo una sesión en vivo?<span>+</span></div>
+                        <div class="faq-answer">Todas las sesiones quedan grabadas y disponibles para ti. Sin embargo, la magia está en participar en vivo: feedback en tiempo real, networking con otros desarrolladores de élite y la posibilidad de hacer preguntas directas a los expertos.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Hay certificación al finalizar?<span>+</span></div>
+                        <div class="faq-answer">Sí, recibes un certificado de completación del programa Hardcore AI. Pero más importante que el certificado es el proyecto E2E que construyes, tu portfolio mejorado y la red de contactos de élite que formas parte.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Cuál es el nivel técnico requerido?<span>+</span></div>
+                        <div class="faq-answer">Debes ser desarrollador con al menos 2-3 años de experiencia. Conocimientos de Git, APIs, bases de datos y al menos un lenguaje de programación moderno. Si has construido aplicaciones en producción, estás listo.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Cuánto tiempo debo dedicar por semana?<span>+</span></div>
+                        <div class="faq-answer">Las 12 sesiones en vivo son de 2 horas cada una. Además, deberás dedicar entre 5-10 horas semanales para trabajar en tu proyecto E2E. Es un programa intensivo que requiere compromiso real.</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">¿Puedo pagar en cuotas?<span>+</span></div>
+                        <div class="faq-answer">Sí, ofrecemos la opción de pagar en 3 cuotas iguales: una en noviembre, otra en diciembre y otra en enero. Esto te permite distribuir la inversión mientras comienzas tu transformación. Contacta con nosotros para coordinar el plan de pagos.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container final-cta">
+                <h2 class="section-title">¿Listo para la Transformación?</h2>
+                <p class="section-subtitle">Únete a desarrolladores de élite que están redefiniendo lo que significa crear software en la era de la IA.</p>
+                <div class="hero-actions" style="justify-content: center;">
+                    <a href="#pricing" class="btn btn-accent">Reserva tu Cupo →</a>
+                    <a href="mailto:contacto@hardcoreai.com?subject=Consulta%20Hardcore%20AI" class="btn btn-ghost">Más Información</a>
+                </div>
+                <div class="stats-grid" style="border: none; padding: 2rem 0 0;">
+                    <div class="stat-card">
+                        <h3>24h</h3>
+                        <p>Contenido en vivo</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>100%</h3>
+                        <p>Garantía</p>
                     </div>
                 </div>
             </div>
@@ -1199,81 +984,34 @@
 
     <footer>
         <div class="container">
-            <img src="30xlogo.webp" alt="Logo 30X" class="logo-img" style="margin: 0 auto 20px; display: block;" onerror="this.style.display='none';">
-            <p style="color: rgba(255, 255, 255, 0.5); margin-bottom: 10px;">
-                Transformando desarrolladores en arquitectos de valor
-            </p>
-            <p style="color: rgba(255, 255, 255, 0.3); font-size: 14px;">
-                &copy; 2025 Hardcore AI. Todos los derechos reservados.
-            </p>
-            <p style="color: rgba(255, 255, 255, 0.3); font-size: 14px; margin-top: 10px;">
-                Un programa del ecosistema <strong>30X</strong> en alianza con <strong>Tribu iA</strong>
-            </p>
+            <img src="30xlogo.webp" alt="Logo 30X" class="logo-img" style="margin: 0 auto 1rem;" onerror="this.style.display='none';">
+            <p>Transformando desarrolladores en arquitectos de valor.</p>
+            <p style="font-size: 0.9rem;">&copy; 2025 Hardcore AI. Todos los derechos reservados.</p>
+            <p style="font-size: 0.9rem;">Un programa del ecosistema <strong>30X</strong> en alianza con <strong>Tribu iA</strong>.</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+            anchor.addEventListener('click', (event) => {
+                const target = document.querySelector(anchor.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                    event.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
         });
 
-        // Intersection Observer para animaciones
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observar secciones para animaciones
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // FAQ Toggle (simple version)
         document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', function() {
-                const answer = this.querySelector('.faq-answer');
-                const icon = this.querySelector('.faq-question span');
-                
-                if (answer.style.display === 'none' || !answer.style.display) {
-                    answer.style.display = 'block';
-                    icon.textContent = '−';
-                } else {
-                    answer.style.display = 'none';
-                    icon.textContent = '+';
-                }
+            const answer = item.querySelector('.faq-answer');
+            const icon = item.querySelector('.faq-question span');
+            answer.style.display = 'none';
+            item.addEventListener('click', () => {
+                const isOpen = answer.style.display === 'block';
+                answer.style.display = isOpen ? 'none' : 'block';
+                icon.textContent = isOpen ? '+' : '−';
             });
-            
-            // Inicialmente ocultar respuestas
-            item.querySelector('.faq-answer').style.display = 'none';
         });
-
-        // Contador de cupos (simulado - en producción conectar a backend)
-        const updateCuposCounter = () => {
-            const cuposElements = document.querySelectorAll('[style*="Solo quedan"]');
-            // En producción, hacer fetch a API para obtener cupos reales
-            // Por ahora es estático
-        };
-
-        updateCuposCounter();
     </script>
 </body>
 </html>
