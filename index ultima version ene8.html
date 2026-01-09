@@ -528,6 +528,25 @@
             }
         }
     </style>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '871397058641901');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=871397058641901&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -612,47 +631,7 @@
             </div>
         </section>
 
-        <section class="section" style="background: var(--muted);">
-            <div class="container">
-                <div class="section-label">Resultados de Aprendizaje</div>
-                <h2 class="section-title">Lo que dominarás al finalizar</h2>
-                <p class="section-subtitle">
-                    Outcomes específicos que transformarán tu forma de construir software con IA.
-                </p>
-                <div class="card-grid two">
-                    <div class="card" style="background: var(--card);">
-                        <div class="card-icon">🎯</div>
-                        <h3>Product Mindset</h3>
-                        <p>Empoderamiento del problema, enfoque en el producto y orientación a métricas de valor para el
-                            negocio, como un FDE (Forward Deployed Engineer).</p>
-                    </div>
-                    <div class="card" style="background: var(--card);">
-                        <div class="card-icon">🔄</div>
-                        <h3>AI-DLC end-to-end</h3>
-                        <p>Desde discovery ➜ especificación ➜ diseño (UI/arquitectura) ➜ implementación guiada por tests
-                            ➜ QA semi-autónomo ➜ deploy ➜ observabilidad/feedback.</p>
-                    </div>
-                    <div class="card" style="background: var(--card);">
-                        <div class="card-icon">📋</div>
-                        <h3>Especificación-como-código</h3>
-                        <p>PRD/ADR en Markdown versionado, trazabilidad a código y tests. Documentación que evoluciona
-                            con tu producto.</p>
-                    </div>
-                    <div class="card" style="background: var(--card);">
-                        <div class="card-icon">🤖</div>
-                        <h3>Agentes y herramientas AI</h3>
-                        <p>En cada etapa: captura de requerimientos, UI-from-text, arquitectura-como-código, agentes de
-                            coding, workflows, testing semi autónomo, copilotos de CI/CD.</p>
-                    </div>
-                    <div class="card" style="background: var(--card);">
-                        <div class="card-icon">🔒</div>
-                        <h3>Seguridad y performance by default</h3>
-                        <p>SAST/DAST/SCA en pipeline, budget de rendimiento, k6 + Lighthouse CI, ELK, OpenTelemetry +
-                            APM.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <section class="section">
             <div class="container">
@@ -1246,9 +1225,7 @@
             <img src="30xlogo.webp" alt="Logo 30X" class="logo-img" style="margin: 0 auto 1rem;"
                 onerror="this.style.display='none';">
             <p>Transformando desarrolladores en arquitectos de valor.</p>
-            <p style="font-size: 0.9rem;">&copy; 2025 Hardcore AI. Todos los derechos reservados.</p>
-            <p style="font-size: 0.9rem;">Un programa del ecosistema <strong>30X</strong> en alianza con <strong>Tribu
-                    iA</strong>.</p>
+            <p style="font-size: 0.9rem;">&copy; 2026 Hardcore AI. Todos los derechos reservados.</p>
         </div>
     </footer>
 
