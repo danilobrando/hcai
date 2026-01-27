@@ -1269,9 +1269,36 @@
             });
         };
 
+        const updateTypeformLinks = () => {
+            const links = document.querySelectorAll('a[href^="https://form.typeform.com/to/fiAbth6N"]');
+            const locationParams = new URLSearchParams(window.location.search);
+            const locationHash = window.location.hash;
+
+            links.forEach(link => {
+                try {
+                    const url = new URL(link.href);
+
+                    // Update query parameters
+                    locationParams.forEach((value, key) => {
+                        url.searchParams.set(key, value);
+                    });
+
+                    // Update hash if present in current location
+                    if (locationHash) {
+                        url.hash = locationHash;
+                    }
+
+                    link.href = url.toString();
+                } catch (e) {
+                    console.error('Error updating Typeform link:', e);
+                }
+            });
+        };
+
         const bootstrapInteractions = () => {
             initSmoothScroll();
             initFaqAccordion();
+            updateTypeformLinks();
         };
 
         if (document.readyState === 'loading') {
