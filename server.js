@@ -14,8 +14,22 @@ app.use(helmet({
       defaultSrc: ["'self'"],
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com", "https://cdn.tailwindcss.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
-      imgSrc: ["'self'", "data:", "https://placehold.co"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.tailwindcss.com"]
+      imgSrc: ["'self'", "data:", "https://placehold.co", "https://www.facebook.com"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://cdn.tailwindcss.com",
+        "https://connect.facebook.net",
+        "https://us.i.posthog.com",
+        "https://us-assets.i.posthog.com"
+      ],
+      connectSrc: [
+        "'self'",
+        "https://us.i.posthog.com",
+        "https://www.facebook.com",
+        "https://facebook.com"
+      ],
+      frameSrc: ["'self'"]
     }
   }
 }));
