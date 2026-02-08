@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardcore AI | Excelencia en Ingeniería</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Meta Pixel -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '871397058641901');
+        fbq('track', 'PageView');
+    </script>
+
+    <!-- PostHog -->
+    <script>
+        !function (t, e) { var o, n, p, r; e.__SV || (window.posthog = e, e._i = [], e.init = function (i, s, a) { function g(t, e) { var o = e.split("."); 2 == o.length && (t = t[o[0]], e = o[1]), t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } } (p = t.createElement("script")).type = "text/javascript", p.crossOrigin = "anonymous", p.async = !0, p.src = s.api_host.replace(".i.posthog.com", "-assets.i.posthog.com") + "/static/array.js", (r = t.getElementsByTagName("script")[0]).parentNode.insertBefore(p, r); var u = e; for (void 0 !== a ? u = e[a] = [] : a = "posthog", u.people = u.people || [], u.toString = function (t) { var e = "posthog"; return "posthog" !== a && (e += "." + a), t || (e += " (stub)"), e }, u.people.toString = function () { return u.toString(1) + ".people (stub)" }, o = "init capture register register_once register_for_session unregister unregister_for_session getFeatureFlag getFeatureFlagPayload isFeatureEnabled reloadFeatureFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSessionId getSurveys getActiveMatchingSurveys renderSurvey canRenderSurvey getNextSurveyStep identify setPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException loadToolbar get_property getSessionProperty createPersonProfile opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing clear_opt_in_out_capturing debug".split(" "), n = 0; n < o.length; n++)g(u, o[n]); e._i.push([i, s, a]) }, e.__SV = 1) }(document, window.posthog || []);
+        posthog.init('phc_XlTle9Y6X5BWuDa0e9CdWvtOAAT4CLADndBwd3BQXLf', { api_host: 'https://us.i.posthog.com', defaults: '2025-11-30' })
+    </script>
+
+    <style>
+        :root {
+            --bg: #030303;
+            --surface: #0A0A0A;
+            --surface-highlight: #121212;
+            --border: #1F1F1F;
+            --border-light: #333333;
+
+            --text-primary: #EDEDED;
+            --text-secondary: #A1A1A1;
+            --text-tertiary: #666666;
+
+            --brand: #D4FF00;
+            --brand-glow: rgba(212, 255, 0, 0.15);
+            --brand-dim: rgba(212, 255, 0, 0.05);
+
+            --error: #FF3333;
+            --success: #00FF94;
+
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Reset & Base */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-size: 16px;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        ::selection {
+            background: var(--brand);
+            color: black;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utilities */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .mono {
+            font-family: var(--font-mono);
+        }
+
+        .text-gradient {
+            background: linear-gradient(to right, #EDEDED, #777);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .brand-text {
+            color: var(--brand);
+        }
+
+        /* Grid Background Effect */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 48px;
+            padding: 0 24px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.2s var(--ease-out);
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--brand);
+            color: black;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            background: #E5FF66;
+            box-shadow: 0 0 20px var(--brand-glow);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-secondary);
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            top: 0;
+            width: 100%;
+            height: 96px;
+            display: flex;
+            align-items: center;
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 100;
+            background: rgba(3, 3, 3, 0.7);
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: -0.05em;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+            color: var(--brand);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 120px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            font-size: 12px;
+            color: var(--brand);
+            margin-bottom: 32px;
+            font-family: var(--font-mono);
+            letter-spacing: 0.05em;
+            animation: fadeIn 1s var(--ease-out);
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 700;
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            max-width: 900px;
+            color: var(--text-primary);
+            animation: slideUp 1s var(--ease-out);
+        }
+
+        .hero-gradient-text {
+            color: #FFFFFF;
+        }
+
+        .hero p {
+            font-size: clamp(18px, 4vw, 20px);
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 40px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            animation: slideUp 1s var(--ease-out) 0.1s backwards;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            animation: slideUp 1s var(--ease-out) 0.2s backwards;
+        }
+
+        /* Abstract Glow Animation */
+        .aurora {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 255, 0, 0.1) 0%, transparent 60%);
+            filter: blur(80px);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: -1;
+            animation: auroraPulse 10s infinite alternate;
+        }
+
+        @keyframes auroraPulse {
+            0% {
+                opacity: 0.4;
+                transform: translateX(-50%) scale(1);
+            }
+
+            100% {
+                opacity: 0.7;
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        /* Section Global */
+        section {
+            padding: 100px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .section-header {
+            margin-bottom: 64px;
+        }
+
+        .section-tag {
+            color: var(--brand);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 18px;
+            color: var(--text-secondary);
+            max-width: 500px;
+        }
+
+        /* Transformation (Git Diff) */
+        .diff-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .diff-side h3 {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .diff-side.left h3 {
+            color: var(--error);
+        }
+
+        .diff-side.right h3 {
+            color: var(--success);
+        }
+
+        .diff-item {
+            display: flex;
+            gap: 16px;
+            padding: 12px 0;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
+            align-items: flex-start;
+        }
+
+        .diff-icon {
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .left .diff-icon {
+            color: var(--error);
+        }
+
+        .right .diff-icon {
+            color: var(--success);
+        }
+
+        .right .diff-item {
+            color: var(--text-primary);
+        }
+
+        /* Pain Points (Console Logs) */
+        .console-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .console-card {
+            background: #050505;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            font-family: var(--font-mono);
+            transition: border-color 0.2s;
+        }
+
+        .console-card:hover {
+            border-color: var(--border-light);
+        }
+
+        .log-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            font-size: 12px;
+            color: var(--text-tertiary);
+        }
+
+        .log-error {
+            color: var(--error);
+        }
+
+        .log-msg {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Curriculum (Pipeline) */
+        .pipeline-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            position: relative;
+        }
+
+        .pipeline-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            background: var(--surface);
+            border: 1px solid transparent;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .pipeline-step:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .pipeline-step:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .pipeline-step:hover {
+            border-color: var(--border-light);
+            background: var(--surface-highlight);
+            z-index: 10;
+        }
+
+        .step-week {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--brand);
+            padding-top: 6px;
+        }
+
+        .step-content h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .step-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Experts (Contributors) */
+        .experts-grid {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            padding-bottom: 24px;
+        }
+
+        .expert-card {
+            min-width: 280px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .expert-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #222;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-tertiary);
+            font-size: 24px;
+        }
+
+        .expert-name {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .expert-role {
+            font-size: 13px;
+            color: var(--brand);
+            margin-bottom: 8px;
+        }
+
+        .expert-bio {
+            font-size: 13px;
+            color: var(--text-tertiary);
+        }
+
+        /* Pricing (Glass) */
+        .pricing-section {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card {
+            max-width: 480px;
+            margin: 0 auto;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 48px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        }
+
+        .price-amount {
+            font-size: 56px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -0.03em;
+            margin: 16px 0;
+        }
+
+        .price-sub {
+            font-size: 14px;
+            color: var(--text-tertiary);
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            text-align: left;
+            margin-bottom: 32px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .feature-icon {
+            color: var(--brand);
+        }
+
+        /* Footer */
+        footer {
+            padding: 64px 0 32px;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-tertiary);
+            font-size: 13px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s var(--ease-out);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .diff-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* SVG Utils */
+        .svg-icon {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2px;
+        }
+
+        .icon-lg {
+            width: 32px;
+            height: 32px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg-grid"></div>
+    <div class="aurora"></div>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <img src="logo30xHCAI.png" alt="Hardcore AI Logo" style="height: 80px; width: auto;">
+            </a>
+            <nav class="nav-links">
+                <a href="#transformacion">Transformación</a>
+                <a href="#pipeline">Pipeline</a>
+                <a href="#precio">Inversión</a>
+            </nav>
+            <a href="#precio" class="btn btn-secondary" style="height: 36px; font-size: 13px;">Aplicar Ahora</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div class="container">
+            <div class="hero-badge">
+                <span
+                    style="width:6px; height:6px; background:var(--brand); border-radius:50%; display:inline-block;"></span>
+                INICIA FEB 23
+            </div>
+            <h1>
+                <span class="hero-gradient-text">Orquesta agentes para construir producto E2E</span><br>
+                <span style="color: var(--brand);">Conecta con founders de la red 30X</span>
+            </h1>
+            <p>
+                Hardcore AI es el programa intensivo de 4 semanas para desarrolladores que quieren
+                convertirse en orquestadores de agentes y construir productos E2E con AI.
+            </p>
+            <div class="hero-cta">
+                <a href="#precio" class="btn btn-primary">Asegurar mi cupo</a>
+                <a href="#pipeline" class="btn btn-secondary">Ver syllabus completo</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Transformation -->
+    <section id="transformacion">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">git diff --stat carrera</span>
+                <h2 class="section-title">La Transformación</h2>
+                <p class="section-desc">No se trata solo de herramientas. Se trata de cambiar tu mentalidad de
+                    consumidor a creador.</p>
+            </div>
+
+            <div class="diff-container reveal">
+                <div class="diff-side left">
+                    <h3 class="mono">--- HEAD (Actual)</h3>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>Atrapado en ciclos de delivery menores</span>
+                    </div>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>"Vibe coding" con deuda técnica brutal</span>
+                    </div>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>Aislado del contexto de negocio</span>
+                    </div>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        <span>Miedo a la obsolescencia</span>
+                    </div>
+                </div>
+                <div class="diff-side right">
+                    <h3 class="mono">+++ FEAT (Futuro)</h3>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Liderando decisiones de arquitectura técnica</span>
+                    </div>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Ingeniería limpia y mantenible con AI</span>
+                    </div>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Product Ownership End-to-End</span>
+                    </div>
+                    <div class="diff-item">
+                        <svg class="diff-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Conectado a la red de Founders</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">stderr.log</span>
+                <h2 class="section-title">Errores de Ejecución</h2>
+            </div>
+
+            <div class="console-grid">
+                <div class="console-card reveal">
+                    <div class="log-header">
+                        <span class="log-error">Error: E_ABRUMADO</span>
+                        <span>main.js:42</span>
+                    </div>
+                    <p class="log-msg">"La ola de AI está rompiendo y no tengo tiempo para surfearla bien. Me ahogo en
+                        herramientas sin entender los patrones profundos."</p>
+                </div>
+                <div class="console-card reveal">
+                    <div class="log-header">
+                        <span class="log-error">Error: E_INVISIBLE</span>
+                        <span>career.py:102</span>
+                    </div>
+                    <p class="log-msg">"Construyo features pero no tengo voz en la estrategia de producto. Soy solo un
+                        detalle de implementación para el negocio."</p>
+                </div>
+                <div class="console-card reveal">
+                    <div class="log-header">
+                        <span class="log-error">Error: E_BLOQUEADO</span>
+                        <span>work.ts:500</span>
+                    </div>
+                    <p class="log-msg">"Mi empresa bloquea herramientas de AI. Me estoy quedando atrás mientras otros
+                        aceleran 10x."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum -->
+    <section id="pipeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">./pipeline.yaml</span>
+                <h2 class="section-title">El Pipeline de Construcción</h2>
+                <p class="section-desc">12 días de ingeniería intensiva y práctica. Desde archivo en blanco hasta app en
+                    producción.</p>
+            </div>
+
+            <div class="pipeline-container reveal">
+                <div class="pipeline-step">
+                    <div class="step-week mono">SEMANA 01</div>
+                    <div class="step-content">
+                        <h4>Descubrimiento y Especs</h4>
+                        <p>Genera PRDs, ADRs y Tech Specs usando AI. Define el QUÉ y el CÓMO antes de escribir una sola
+                            línea de código.</p>
+                        <div class="step-tags">
+                            <span class="tag">Vision Board</span><span class="tag">PRD</span><span class="tag">Decision
+                                Records</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-week mono">SEMANA 02</div>
+                    <div class="step-content">
+                        <h4>Implementación Agéntica</h4>
+                        <p>Configura IDEs agénticos para codear por ti. Pasa de "Escribir Código" a "Revisar Lógica".
+                            Implementa patrones TDD y DDD.</p>
+                        <div class="step-tags">
+                            <span class="tag">Cursor</span><span class="tag">Windsurf</span><span class="tag">Domain
+                                Driven Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-week mono">SEMANA 03</div>
+                    <div class="step-content">
+                        <h4>Testing y Calidad</h4>
+                        <p>Pruebas de integración y E2E impulsadas por AI. Asegura que tu código agéntico sea robusto,
+                            seguro y mantenible.</p>
+                        <div class="step-tags">
+                            <span class="tag">Playwright</span><span class="tag">Synthetic Monitoring</span><span
+                                class="tag">CI/CD</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="pipeline-step">
+                    <div class="step-week mono">SEMANA 04</div>
+                    <div class="step-content">
+                        <h4>Producción y Observabilidad</h4>
+                        <p>Despliega a la nube. Configura pipelines de observabilidad. Presenta tu producto a la Red de
+                            Founders de 30X.</p>
+                        <div class="step-tags">
+                            <span class="tag">Infrastructure as Code</span><span class="tag">Observability</span><span
+                                class="tag">Demo Day</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contributors -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Staff</span>
+                <h2 class="section-title">Instructores</h2>
+            </div>
+            <div class="experts-grid reveal">
+                <div class="expert-card">
+                    <img src="leonardo.jpeg" alt="Leonardo Gonzalez" class="expert-img" style="object-fit: cover;">
+                    <div class="expert-name">Leonardo Gonzalez</div>
+                    <div class="expert-role">Investigador AI & Líder Tribu iA/Papers</div>
+                    <div class="expert-bio">20+ años de experiencia en Silicon Valley y Fortune 500.</div>
+                </div>
+                <div class="expert-card">
+                    <img src="danny.jpeg" alt="Danny Bravo" class="expert-img" style="object-fit: cover;">
+                    <div class="expert-name">Danny Bravo</div>
+                    <div class="expert-role">AI Product Innovator & Cofundador de Tribu iA</div>
+                    <div class="expert-bio">Experiencia de 6 años en AI-driven products</div>
+                </div>
+            </div>
+
+            <div class="section-header" style="margin-top: 80px;">
+                <span class="section-tag">Bonus</span>
+                <h2 class="section-title">Cracks Invitados</h2>
+            </div>
+            <div class="experts-grid reveal">
+                <div class="expert-card">
+                    <img src="andres.jpeg" alt="Andrés Bilbao" class="expert-img" style="object-fit: cover;">
+                    <div class="expert-name">Andrés Bilbao</div>
+                    <div class="expert-role">Co-founder Rappi & 30X</div>
+                    <div class="expert-bio">Emprendedor serial y visionario tecnológico.</div>
+                </div>
+                <div class="expert-card">
+                    <img src="francisco.jpeg" alt="Francisco Martínez" class="expert-img" style="object-fit: cover;">
+                    <div class="expert-name">Francisco Martínez</div>
+                    <div class="expert-role">Tech Manager @ Globant/Disney</div>
+                    <div class="expert-bio">Especialista en arquitectura para e-commerce de alto tráfico.</div>
+                </div>
+                <div class="expert-card">
+                    <img src="jefferson.jpeg" alt="Jefferson Arcos" class="expert-img" style="object-fit: cover;">
+                    <div class="expert-name">Jefferson Arcos</div>
+                    <div class="expert-role">Tech Founder & Head of AI</div>
+                    <div class="expert-bio">Líder de AI en la startup de más rápido crecimiento en US (2021).</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="precio" class="pricing-section">
+        <div class="container">
+            <div class="pricing-card reveal">
+                <span class="section-tag">LO QUE TE LLEVAS</span>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <svg class="feature-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>12 Sesiones en Vivo</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Acceso directo a Founders 30X</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Sales con un producto construido E2E con AI</span>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                        </svg>
+                        <span>Acceso a comunidad de builders</span>
+                    </div>
+                </div>
+
+                <a href="https://form.typeform.com/to/fiAbth6N?utm_campaign=landing#ref_id=xxxxx"
+                    class="btn btn-primary" style="width:100%;">Iniciar Aplicación</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hardcore AI by 30X. Todos los sistemas nominales.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Reveal on Scroll
+        const observerOptions = { threshold: 0.1 };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+
+</html>

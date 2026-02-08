@@ -27,6 +27,7 @@ Además, encontrarás desarrolladores con quienes compartirás la pasión por ir
 * Programación en Javascript y/o Python  
 * Conocimientos básicos de Git, GitHub, Node/TS o Python, Docker básico, fundamentos de Cloud Computing. Cuenta en GitHub.  
 * Laptop con al menos 16GB de RAM
+* Suscrpción activa a Claude Pro ($20 USD) o similar
 
 ## **Tu producto**
 
@@ -137,6 +138,10 @@ Durante las sesiones contarás con espacios para conectar con otros desarrollado
 Leonardo Gonzalez. Investigador en AI y líder de Tribu iA/Papers. Experiencia de 20 años en Silicon Valley y en compaías Fortune 500.
 
 Danny Bravo. AI Product Innovator y cofundador de Tribu iA.
+
+Carlos Alarcón. Co-founder y CTO de Quix - ex Platzi. Youtuber y GDE
+
+Christian Braatz. Arquitecto de Software con 20 años de experiencia.
 
 **Bonus**
 
