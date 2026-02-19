@@ -53,7 +53,11 @@ app.get('/', (req, res) => {
 });
 
 // Manejo de rutas no encontradas - redirige al index para SPA-like behavior
-app.get('*', (req, res) => {
+// Solo aplica a rutas sin extensión de archivo para no interferir con assets estáticos
+app.get('*', (req, res, next) => {
+  if (path.extname(req.path)) {
+    return next(); // Deja que Express maneje archivos con extensión (PDFs, imágenes, etc.)
+  }
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
