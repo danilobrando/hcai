@@ -662,16 +662,61 @@
       border-right: none;
     }
 
+    /* === TRANSFORM PAIRED (mobile) === */
+    .transform-paired {
+      display: none;
+    }
+
+    .transform-pair {
+      background: rgba(0, 0, 0, 0.30);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(107, 114, 128, 0.15);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .transform-pair .pair-before {
+      padding-bottom: 1rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid rgba(212, 225, 87, 0.1);
+    }
+
+    .transform-pair .pair-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.3rem;
+    }
+
+    .transform-pair .pair-before .pair-label { color: #6B7280; }
+    .transform-pair .pair-after .pair-label { color: #D4E157; }
+
+    .transform-pair .pair-before h4 { color: #6B7280; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .transform-pair .pair-after h4 { color: #D4E157; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+    .transform-pair p { font-size: 0.85rem; color: #9CA3AF; line-height: 1.5; }
+
+    .transform-pair .pair-arrow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .transform-pair .pair-arrow svg {
+      color: #D4E157;
+      flex-shrink: 0;
+    }
+
     @media (max-width: 768px) {
-      .transform-grid { grid-template-columns: 1fr; gap: 1rem; }
-      .transform-col.before, .transform-col.after { text-align: left; padding: 0; }
-      .transform-divider { display: none; }
+      .transform-grid { display: none; }
+      .transform-paired { display: block; }
       .transform-title { font-size: 2rem; }
       .transform-section { padding: 5rem 1.5rem; }
       .transform-image-labels { padding: 0 1.5rem; }
-      .transform-col.before .transform-row h4 { color: #6B7280; }
-      .transform-col.before .transform-row h4::before { content: 'ANTES: '; font-size: 0.7rem; opacity: 0.6; }
-      .transform-col.after .transform-row h4::before { content: 'DESPUÉS: '; font-size: 0.7rem; opacity: 0.8; }
     }
 
     /* === SECTION BUILD (REDISEÑO) === */
@@ -1965,7 +2010,11 @@
     @media (max-width: 768px) {
       .nav-links { display: none; }
       .mobile-menu-btn { display: block; }
+      .nav-logo img { height: 50px; }
+      .nav-bar { padding: 0.8rem 1.2rem; }
 
+      .hero-section { padding-top: 5rem; align-items: flex-start; }
+      .hero-content { padding-top: 2rem; }
       .hero-content h1 { font-size: 2.2rem !important; line-height: 1.15 !important; }
       .hero-content p { font-size: 1rem !important; }
       .stats-bar { gap: 1.5rem; }
@@ -2218,6 +2267,105 @@
             <p>Eres quien lidera la adopción de AI en tu equipo con criterio real.</p>
           </div>
           <div class="transform-row">
+            <h4>Camino a Tech Lead / Architect o cofounder técnico</h4>
+            <p>Con producto demostrable, red de contactos y habilidades que te diferencian.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Paired view for mobile -->
+      <div class="transform-paired reveal">
+        <div class="transform-pair">
+          <div class="pair-before">
+            <div class="pair-label">Antes</div>
+            <h4>"El que implementa tickets"</h4>
+            <p>Ejecutor sin voz en decisiones de producto ni dirección técnica.</p>
+          </div>
+          <div class="pair-after">
+            <div class="pair-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="pair-label">Después</div>
+            </div>
+            <h4>Lidera decisiones técnicas</h4>
+            <p>Con visión de producto, negocias con stakeholders y defines dirección.</p>
+          </div>
+        </div>
+
+        <div class="transform-pair">
+          <div class="pair-before">
+            <div class="pair-label">Antes</div>
+            <h4>Vibe coding / deuda técnica</h4>
+            <p>Código generado rápido que se rompe, no escala y nadie quiere mantener.</p>
+          </div>
+          <div class="pair-after">
+            <div class="pair-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="pair-label">Después</div>
+            </div>
+            <h4>Vibe Engineering con calidad</h4>
+            <p>Código mantenible, testeado y desplegado — generado con agentes bajo tu control.</p>
+          </div>
+        </div>
+
+        <div class="transform-pair">
+          <div class="pair-before">
+            <div class="pair-label">Antes</div>
+            <h4>Sin contexto del "por qué"</h4>
+            <p>Construyes sin entender el problema de negocio ni el usuario final.</p>
+          </div>
+          <div class="pair-after">
+            <div class="pair-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="pair-label">Después</div>
+            </div>
+            <h4>Visión e2e producto + negocio</h4>
+            <p>Desde discovery hasta deploy, entiendes y aportas en cada etapa.</p>
+          </div>
+        </div>
+
+        <div class="transform-pair">
+          <div class="pair-before">
+            <div class="pair-label">Antes</div>
+            <h4>Aislado, sin validación</h4>
+            <p>Sin pares ambiciosos ni entorno que eleve tu estándar profesional.</p>
+          </div>
+          <div class="pair-after">
+            <div class="pair-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="pair-label">Después</div>
+            </div>
+            <h4>Rodeado de devs + founders</h4>
+            <p>Comunidad de desarrolladores ambiciosos y acceso a la red 30X.</p>
+          </div>
+        </div>
+
+        <div class="transform-pair">
+          <div class="pair-before">
+            <div class="pair-label">Antes</div>
+            <h4>Miedo a quedar obsoleto</h4>
+            <p>La ola AI avanza y sientes que te estás quedando atrás.</p>
+          </div>
+          <div class="pair-after">
+            <div class="pair-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="pair-label">Después</div>
+            </div>
+            <h4>Referente en AI</h4>
+            <p>Eres quien lidera la adopción de AI en tu equipo con criterio real.</p>
+          </div>
+        </div>
+
+        <div class="transform-pair">
+          <div class="pair-before">
+            <div class="pair-label">Antes</div>
+            <h4>Carrera estancada</h4>
+            <p>Sin camino claro hacia el siguiente nivel profesional.</p>
+          </div>
+          <div class="pair-after">
+            <div class="pair-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D4E157" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <div class="pair-label">Después</div>
+            </div>
             <h4>Camino a Tech Lead / Architect o cofounder técnico</h4>
             <p>Con producto demostrable, red de contactos y habilidades que te diferencian.</p>
           </div>
