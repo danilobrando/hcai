@@ -3044,13 +3044,18 @@
 
     // === UTM passthrough to Typeform ===
     (function() {
-      const params = new URLSearchParams(window.location.search);
-      const utmCampaign = params.get('utm_campaign');
-      if (utmCampaign) {
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.toString()) {
         document.querySelectorAll('.typeform-cta').forEach(link => {
-          const url = new URL(link.href);
-          url.searchParams.set('utm_campaign', utmCampaign);
-          link.href = url.toString();
+          try {
+            const url = new URL(link.href);
+            urlParams.forEach((value, key) => {
+              url.searchParams.set(key, value);
+            });
+            link.href = url.toString();
+          } catch (e) {
+            console.error('Error parsing URL:', e);
+          }
         });
       }
     })();
