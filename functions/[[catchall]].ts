@@ -21,7 +21,8 @@ export const onRequest: PagesFunction = async (context) => {
   const path = url.pathname;
 
   if (!shouldProxy(path)) {
-    return new Response('Not Found', { status: 404 });
+    // Pass through to static asset serving
+    return context.next();
   }
 
   const targetUrl = new URL(path + url.search, RAILWAY_ORIGIN);
